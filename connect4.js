@@ -18,11 +18,9 @@ let board = []; // array of rows, each row is array of cells  (board[y][x])
  */
 
 function makeBoard() {
-  // TODO: set "board" to empty HEIGHT x WIDTH matrix array
-  board = []
-  for (let y = 0; y<HEIGHT; y++){
-   let row = []
-   for (let x = 0; x<WIDTH; x++){
+  for (let y = 0; y < HEIGHT; y++) {
+    let row = []
+    for (let x = 0; x < WIDTH; x++) {
       row.push(null)
     }
     board.push(row)
@@ -32,14 +30,13 @@ function makeBoard() {
 /** makeHtmlBoard: make HTML table and row of column tops. */
 
 function makeHtmlBoard() {
-  // TODO: get "htmlBoard" variable from the item in HTML w/ID of "board"
-
-  // TODO: add comment for this code
+  const htmlBoard = document.getElementById('board');
+  //create a row for board and add click handler to it.
   const top = document.createElement("tr");
   top.setAttribute("id", "column-top");
   top.addEventListener("click", handleClick);
 
-  // TODO: add comment for this code
+  //Dymacilly add cells to the header row according to the board width;
   for (let x = 0; x < WIDTH; x++) {
     const headCell = document.createElement("td");
     headCell.setAttribute("id", x);
@@ -51,19 +48,14 @@ function makeHtmlBoard() {
   // uses HEIGHT to create table rows
   // uses WIDTH to create table cells for each row
   for (let y = 0; y < HEIGHT; y++) {
-    // TODO: Create a table row element and assign to a "row" variable
-
+    const row = document.createElement('tr');
     for (let x = 0; x < WIDTH; x++) {
-      // TODO: Create a table cell element and assign to a "cell" variable
-
-      // TODO: add an id, y-x, to the above table cell element
+      const cell = document.createElement('td');
+      cell.setAttribute('id', `${y}-${x}`);
       // you'll use this later, so make sure you use y-x
-
-      // TODO: append the table cell to the table row
-
+      row.append(cell);
     }
-    // TODO: append the row to the html board
-
+    htmlBoard.append(row);
   }
 }
 
