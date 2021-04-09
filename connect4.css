@@ -34,3 +34,8 @@
 .p2{
   background-color: blue;
 }
+.reset {
+  background-color: cadetblue;
+  height: 35px;
+  width: 100px;
+}
